@@ -1,6 +1,7 @@
 
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
+export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
 
 export const initialState = 
   [{  
@@ -34,6 +35,9 @@ export const todoReducer = (state, action) => {
           return todo;
         }
       })
+
+    case CLEAR_COMPLETED:
+      return state.filter(todo => !todo.completed);
 
     default:
       return state;

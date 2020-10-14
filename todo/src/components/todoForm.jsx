@@ -1,5 +1,5 @@
 import React, { useState, useReducer } from 'react';
-import { todoReducer, initialState, ADD_TODO, TOGGLE_COMPLETED } from '../reducers/todoReducer';
+import { todoReducer, initialState, ADD_TODO, TOGGLE_COMPLETED, CLEAR_COMPLETED } from '../reducers/todoReducer';
 import Todos from './todos';
 
 const TodoForm = () => {
@@ -29,6 +29,9 @@ const TodoForm = () => {
       >Add New Todo</button>
     </div>
     <Todos todos={state} dispatch={dispatch} completed={TOGGLE_COMPLETED}/>
+    <button
+      onClick={() => dispatch({type: CLEAR_COMPLETED})}
+    >Clear Completed</button>
     </div>
   )
 }
