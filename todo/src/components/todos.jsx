@@ -1,12 +1,13 @@
 import React, { useReducer } from 'react';
 import { todoReducer, initialState } from '../reducers/todoReducer';
 
-const Todos = () => {
-  const [state, dispatch] = useReducer(todoReducer, initialState);
+const Todos = (props) => {
+  // const [state, dispatch] = useReducer(todoReducer, initialState);
 
   return (
     <div>
-      {state.map(todo => (
+      <h1>Todos</h1>
+      {props.todos.map(todo => (
         <div>
           <h2>{todo.item}</h2>
         </div>

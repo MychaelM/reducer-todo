@@ -1,18 +1,34 @@
 import React, { useState, useReducer } from 'react';
-import { todoReducer, initialState } from '../reducers/todoReducer';
+import { todoReducer, initialState, ADD_TODO } from '../reducers/todoReducer';
+import Todos from './todos';
 
 const TodoForm = () => {
   const [state, dispatch] = useReducer(todoReducer, initialState);
   const [newTodo, setNewTodo] = useState("");
 
+  const handleChanges = e => {
+    // console.log(state)
+    setNewTodo(e.target.value);
+  }
+
   return (
     <div>
       <h1>Reducer Todo</h1>
-    <form>
+    <div>
       <label htmlFor="todo">New Todo</label>
-      <input type="text" name="todo" id="todo"/>
-      <button>Add New Todo</button>
-    </form>
+      <input 
+      type="text" 
+      name="todo" 
+      id="todo" 
+      value={newTodo} 
+      onChange={handleChanges}/>
+      <button
+      onClick={() => {
+        dispatch({ type: ADD_TODO, payload: newTodo });
+      }}
+      >Add New Todo</button>
+    </div>
+    <Todos todos={state}/>
     </div>
   )
 }
