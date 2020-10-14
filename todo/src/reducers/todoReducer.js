@@ -1,5 +1,5 @@
 
-export const initialState = {
+export const initialState = 
   [{  
     item: "Learn about reducers",
     completed: false,
@@ -11,13 +11,12 @@ export const initialState = {
     id: 3892987590
   },
   {
-    item: "thirs todo",
+    item: "third todo",
     completed: false,
     id: 3892987591
-  }]
-};
+  }];
 
-export const reducer = (state, action) => {
+export const todoReducer = (state, action) => {
   switch (action.type) {
     default:
       return state;
