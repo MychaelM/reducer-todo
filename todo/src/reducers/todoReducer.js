@@ -1,5 +1,6 @@
 
 export const ADD_TODO = "ADD_TODO";
+export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
 
 export const initialState = 
   [{  
@@ -22,6 +23,17 @@ export const todoReducer = (state, action) => {
   switch (action.type) {
     case ADD_TODO:
       return [...state, {item: action.payload, completed: false, id: Date.now()}]
+
+    case TOGGLE_COMPLETED:
+      console.log("Toggling Completed")
+     return state.map(todo => {
+        if (todo.id === action.payload) {
+          console.log("if called");
+          return {...todo, completed: !todo.completed};
+        } else {
+          return todo;
+        }
+      })
 
     default:
       return state;
