@@ -39,9 +39,9 @@
 
 .todo {
   border: 1px solid black;
-  width: 100px;
+  width: 33%;
   height: 100px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .completed {
